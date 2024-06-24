@@ -6,20 +6,20 @@ public class Main {
 
         System.out.println(bra.getNome());
 
-        bra.adicionarConta("Thiago", 2, 4214);
-        bra.adicionarConta("Juliana", 1, 1264);
+        bra.adicionarConta("Mario", "12345678978", 2, 4214);
+        bra.adicionarConta("Leia","9876543127", 1, 1264);
         
         bra.exibirContas();
         
-        bra.depositarNaConta("Juliana", 1, 1264, 110);
+        bra.depositarNaConta("Leia", "9876543127", 110);
         
         bra.exibirContas();
 
-        bra.depositarNaConta("Thiago", 2, 4214, 6000);
+        bra.depositarNaConta("Mario", "12345678978", 6000);
 
         bra.exibirContas();
 
-        bra.sacarDaConta("Thiago", 2, 4214, 5000);
+        bra.sacarDaConta("Mario", "12345678978", 5000);
 
         bra.exibirContas();
     }

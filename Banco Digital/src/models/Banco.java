@@ -17,16 +17,16 @@ public class Banco {
         return nome;
     }
 
-    public void adicionarConta(String nome, int agencia, int numero) {
-        contasList.add(new Conta(nome, agencia, numero));
+    public void adicionarConta(String nome, String cpf, int agencia, int numero) {
+        contasList.add(new Conta(nome, cpf, agencia, numero));
     }
 
-    public void removerConta(String nome, int agencia, int numero) {
+    public void removerConta(String nome, String cpf) {
         List<Conta> contaParaRemover = null;
         if (!contasList.isEmpty()) {
-            for (Conta conta : contasList) {
-                if (conta.getNome().equalsIgnoreCase(nome) && conta.getAgencia() == agencia && conta.getNumero() == numero) {
-                    contaParaRemover.add(conta);
+            for (Conta c : contasList) {
+                if (c.getCpf().equalsIgnoreCase(cpf) && c.getNome().equalsIgnoreCase(nome)) {
+                    contaParaRemover.add(c);
                     contasList.remove(contaParaRemover);
                     break;
                 }
@@ -39,9 +39,9 @@ public class Banco {
         System.out.println(contasList);
     }
     
-    public void depositarNaConta(String nome, int agencia, int numero, double valor) {
+    public void depositarNaConta(String nome, String cpf, double valor) {
         for (Conta c : contasList) {
-            if (c.getNome().equalsIgnoreCase(nome) && c.getAgencia() == agencia && c.getNumero() == numero) {
+            if (c.getCpf().equalsIgnoreCase(cpf) && c.getNome().equalsIgnoreCase(nome)) {
                 c.depositar(valor);
                 break;
             } 
@@ -49,9 +49,9 @@ public class Banco {
         }
     }
 
-    public void sacarDaConta(String nome, int agencia, int numero, double valor) {
+    public void sacarDaConta(String nome, String cpf, double valor) {
         for (Conta c : contasList) {
-            if (c.getNome().equalsIgnoreCase(nome) && c.getAgencia() == agencia && c.getNumero() == numero) {
+            if (c.getCpf().equalsIgnoreCase(cpf) && c.getNome().equalsIgnoreCase(nome)) {
                 c.sacar(valor);
                 break;
             }    
